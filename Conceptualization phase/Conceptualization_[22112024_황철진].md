@@ -11,7 +11,7 @@
 
 <div align=center>
   
-## [ Revision history ]
+# [ Revision history ]
 | Revision date | Version | Description | Author |
 | :---: | :---: | :---: | :---: |
 | |1.0| first writing | |
