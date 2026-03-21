@@ -30,7 +30,13 @@ Smart Medication & Supplement Management System의 목적은 사용자가 일상
 궁극적으로 본 시스템은 사용자의 복약 순응도를 향상시키고, 보다 안전한 복용 환경을 조성하며, 일상적인 건강 관리를 보다 편리하고 체계적으로 지원하는 것을 목표로 한다.
 
 # 2. System context diagram
-
+```mermaid
+    flowchart LR
+    user -->|회원가입, 로그인 요청, 약/영양제 정보 요청, 리뷰 등록 요청, 약 복용 기록 및 조회, 리뷰 작성 및 조회, | system
+    system --> user
+    system --> server
+    server --> system
+```
 
 
 # 3. Use case list
