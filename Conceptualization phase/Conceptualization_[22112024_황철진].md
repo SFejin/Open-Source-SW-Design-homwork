@@ -412,3 +412,4 @@ Administrator : 시스템을 관리하는 주체로, 사용자 관리 및 리뷰
 | 서버 (Server) | 데이터 저장 및 처리를 담당하며, 시스템과 사용자 간의 데이터를 관리하는 역할을 한다. |
 
 # 7. References
+식품의약품안전처 블로그 https://blog.naver.com/kfdazzang/222953272483
