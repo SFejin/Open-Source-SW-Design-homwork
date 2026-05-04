@@ -15,7 +15,7 @@
 | Revision date | Version | Description | Author |
 | :---: | :---: | :---: | :---: |
 | 2026-03-27 |1.0| first writing | |
-| | | | |
+| 2026-05-04 |1.1| Concept of operation 수정 | |
 | | | | |
 | | | | |
 
@@ -58,7 +58,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
 | No | Use Case              | Actor              | Description |
 |----|----------------------|--------------------|-------------|
 | 1  | 회원가입             | Users              | 리뷰 등록 시스템의 기능을 이용하기 위해 회원가입을 진행한다. |
-| 2  | 로그인               | Users              | 자신의 계정으로 로그인하며, 시스템은 서버를 통해 로그인 성공 여부를 확인한다. |
+| 2  | 로그인               | Users, Administrator              | 자신의 계정으로 로그인하며, 시스템은 서버를 통해 로그인 성공 여부를 확인한다. |
 | 3  | 로그아웃             | Users              | 시스템 사용 종료 시 로그아웃을 수행한다. |
 | 4  | 약/영양제 검색        | Users              | 약 또는 영양제의 이름을 검색하여 관련 정보를 조회한다. |
 | 5  | 약/영양제 정보 조회   | Users              | 선택한 약/영양제의 효능, 복용법, 주의사항 등의 상세 정보를 확인한다. |
@@ -68,11 +68,12 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
 | 9  | 복용 기록 조회        | Users              | 자신의 복약 이력을 조회한다. |
 | 10 | 리뷰 조회            | Users              | 유저는 다른 사용자가 작성한 약/영양제 리뷰를 조회한다. |
 | 11 | 리뷰 작성            | Users              | 유저는 약/영양제에 대한 자신의 경험을 바탕으로 리뷰를 작성한다. |
-| 12 | 리뷰 수정/삭제        | Users              | 자신이 작성한 리뷰를 수정하거나 삭제한다. |
-| 13 | 사용자 정보 관리      | Users              | 자신의 계정 정보를 수정하거나 관리한다. |
-| 14 | 사용자 관리          | Administrator      | 관리자는 사용자 계정을 조회, 수정 또는 삭제할 수 있다. |
-| 15 | 리뷰 관리            | Administrator      | 관리자는 부적절한 리뷰를 검토하고 삭제할 수 있다. |
-| 16 | 약 정보 관리         | Administrator      | 관리자는 약/영양제 정보를 추가, 수정, 삭제할 수 있다. |
+| 12 | 리뷰 수정      | Users              | 자신이 작성한 리뷰를 수정한다. |
+| 13 | 리뷰 삭제      | Users              | 자신이 작성한 리뷰를 삭제한다. |
+| 14 | 사용자 정보 관리      | Users              | 자신의 계정 정보를 수정하거나 관리한다. |
+| 15 | 사용자 관리          | Administrator      | 관리자는 사용자 계정을 조회, 수정 또는 삭제할 수 있다. |
+| 16 | 리뷰 관리            | Administrator      | 관리자는 부적절한 리뷰를 검토하고 삭제할 수 있다. |
+| 17 | 약 정보 관리         | Administrator      | 관리자는 약/영양제 정보를 추가, 수정, 삭제할 수 있다. |
 
 # 4. Concept of operation
 1. 회원가입
@@ -118,7 +119,28 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-3. 약/영양제 검색
+3. 로그아웃
+<table>
+  <tr>
+    <td><b>Purpose</b></td>
+    <td>시스템 사용이 끝난 사용자, 관리자의 로그인 상태를 해제한다.
+  </tr>
+  <tr> 
+    <td><b>Approach</b></td>
+    <td>시스템 사용 종료를 위해 버튼을 제공한다.
+  </tr>
+  <tr>
+    <td><b>Dynamics</b></td>
+    <td>사용자가 시스템에 접근할 때
+  </tr>
+  <tr>
+  <tr>
+    <td><b>Goals</b></td>
+    <td>로그 아웃 기능을 구현한다.
+ </tr>
+</table>
+
+4. 약/영양제 검색
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -139,7 +161,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-4. 약/영양제 정보 조회
+5. 약/영양제 정보 조회
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -160,7 +182,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-5. 복약 일정 등록
+6. 복약 일정 등록
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -181,7 +203,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-6. 복용 알림
+7. 복용 알림
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -202,7 +224,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-7. 복용 기록 입력
+8. 복용 기록 입력
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -223,7 +245,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-8. 복용 기록 조회
+9. 복용 기록 조회
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -244,7 +266,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-9. 리뷰 조회
+10. 리뷰 조회
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -264,7 +286,8 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
     <td>리뷰 조회 기능을 구현한다.
  </tr>
 </table>
-10. 리뷰 작성
+
+11. 리뷰 작성
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -276,7 +299,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
   </tr>
   <tr>
     <td><b>Dynamics</b></td>
-    <td>약/영양제를 복용한 후
+    <td>약/영양제에 대한 평가를 공유하고 싶을 때
   </tr>
   <tr>
   <tr>
@@ -285,7 +308,70 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-11. 사용자 관리
+12. 리뷰 수정
+<table>
+  <tr>
+    <td><b>Purpose</b></td>
+    <td>사용자의 경험을 공유하여 다른 사용자에게 도움을 준다.
+  </tr>
+  <tr> 
+    <td><b>Approach</b></td>
+    <td>자신이 작성한 리뷰를 수정하고 서버에 저장한다.
+  </tr>
+  <tr>
+    <td><b>Dynamics</b></td>
+    <td>리뷰에 수정 사항이 생겼을 때
+  </tr>
+  <tr>
+  <tr>
+    <td><b>Goals</b></td>
+    <td>리뷰 수정 기능을 구현한다.
+ </tr>
+</table>
+
+13. 리뷰 삭제
+<table>
+  <tr>
+    <td><b>Purpose</b></td>
+    <td>사용자의 경험을 공유하여 다른 사용자에게 도움을 준다.
+  </tr>
+  <tr> 
+    <td><b>Approach</b></td>
+    <td>리뷰를 삭제하고 서버에서 내용을 삭제한다.
+  </tr>
+  <tr>
+    <td><b>Dynamics</b></td>
+    <td>리뷰 삭제 버튼을 눌렀을 때
+  </tr>
+  <tr>
+  <tr>
+    <td><b>Goals</b></td>
+    <td>리뷰 삭제 기능을 구현한다.
+ </tr>
+</table>
+
+14. 사용자 정보 관리
+<table>
+  <tr>
+    <td><b>Purpose</b></td>
+    <td>사용자의 비밀번호 변경이나 인적사항을 수정한다.
+  </tr>
+  <tr> 
+    <td><b>Approach</b></td>
+    <td>비밀번호 변경 등 기존의 사용자 정보를 변경할 수 있게 한다.
+  </tr>
+  <tr>
+    <td><b>Dynamics</b></td>
+    <td>사용자가 정보 관리 버튼을 눌렀을 때
+  </tr>
+  <tr>
+  <tr>
+    <td><b>Goals</b></td>
+    <td>사용자 정보 관리 기능을 구현한다.
+ </tr>
+</table>
+
+15. 사용자 관리
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -306,7 +392,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-12. 리뷰 관리
+16. 리뷰 관리
 <table>
   <tr>
     <td><b>Purpose</b></td>
@@ -327,7 +413,7 @@ Administrator : 시스템을 관리하는 주체 사용자 관리 및 리뷰 관
  </tr>
 </table>
 
-13. 약 정보 관리
+17. 약 정보 관리
 <table>
   <tr>
     <td><b>Purpose</b></td>
