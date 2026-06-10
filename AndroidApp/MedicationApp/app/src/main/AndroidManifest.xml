@@ -46,5 +46,12 @@
         <receiver
             android:name=".alarm.AlarmReceiver"
             android:exported="false" />
+        <receiver
+            android:name=".alarm.AlarmReceiver"
+            android:exported="false" />
+
+        <receiver
+            android:name=".alarm.IntakeActionReceiver"
+            android:exported="false" />
     </application>
 </manifest>

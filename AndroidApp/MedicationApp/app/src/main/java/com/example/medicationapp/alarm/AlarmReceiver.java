@@ -3,6 +3,7 @@ package com.example.medicationapp.alarm;
 import android.Manifest;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -47,13 +48,30 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         createNotificationChannel(context);
 
+        Intent takenIntent = new Intent(context, IntakeActionReceiver.class);
+        takenIntent.setAction("ACTION_MEDICINE_TAKEN");
+        takenIntent.putExtra("scheduleId", scheduleId);
+        takenIntent.putExtra("itemName", itemName);
+
+        PendingIntent takenPendingIntent = PendingIntent.getBroadcast(
+                context,
+                scheduleId + 10000,
+                takenIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
+
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(context, CHANNEL_ID)
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle("복약 알림")
                         .setContentText(itemName + " 복용할 시간입니다.")
                         .setPriority(NotificationCompat.PRIORITY_HIGH)
-                        .setAutoCancel(true);
+                        .setAutoCancel(true)
+                        .addAction(
+                                android.R.drawable.checkbox_on_background,
+                                "복용함",
+                                takenPendingIntent
+                        );
 
         NotificationManager manager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

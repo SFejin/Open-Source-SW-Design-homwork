@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.medicationapp.adapter.ScheduleAdapter;
 import com.example.medicationapp.alarm.AlarmScheduler;
 import com.example.medicationapp.local.AppDatabase;
 import com.example.medicationapp.local.ScheduleEntity;
@@ -34,8 +34,7 @@ public class ScheduleActivity extends AppCompatActivity {
     private AppDatabase db;
 
     private List<ScheduleEntity> scheduleList = new ArrayList<>();
-    private List<String> displayList = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
+    private ScheduleAdapter adapter;
 
     private static final int REQ_NOTIFICATION = 1001;
 
@@ -54,25 +53,25 @@ public class ScheduleActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(this);
 
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, displayList);
+        adapter = new ScheduleAdapter(
+                this,
+                scheduleList,
+                schedule -> {
+                    AlarmScheduler.cancelAlarm(this, schedule.scheduleId);
+                    db.scheduleDao().deleteById(schedule.scheduleId);
+
+                    Toast.makeText(this, "일정과 알림이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+
+                    loadSchedules();
+                }
+        );
+
         listSchedules.setAdapter(adapter);
 
         requestNotificationPermission();
         requestExactAlarmPermissionIfNeeded();
 
         btnSaveSchedule.setOnClickListener(v -> saveSchedule());
-
-        listSchedules.setOnItemLongClickListener((parent, view, position, id) -> {
-            ScheduleEntity schedule = scheduleList.get(position);
-
-            AlarmScheduler.cancelAlarm(this, schedule.scheduleId);
-            db.scheduleDao().deleteById(schedule.scheduleId);
-
-            Toast.makeText(this, "일정과 알림이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
-
-            loadSchedules();
-            return true;
-        });
 
         loadSchedules();
     }
@@ -138,20 +137,7 @@ public class ScheduleActivity extends AppCompatActivity {
 
     private void loadSchedules() {
         scheduleList.clear();
-        displayList.clear();
-
         scheduleList.addAll(db.scheduleDao().getAllSchedules());
-
-        for (ScheduleEntity s : scheduleList) {
-            displayList.add(
-                    "ID: " + s.scheduleId + "\n" +
-                            "이름: " + s.itemName + "\n" +
-                            "시간: " + String.format("%02d:%02d", s.hour, s.minute) + "\n" +
-                            "주기: " + s.cycle + "\n" +
-                            "알림 활성화: " + s.enabled
-            );
-        }
-
         adapter.notifyDataSetChanged();
     }
 }
