@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="복용 기록"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editItemName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="약/영양제 이름"
+        android:layout_marginTop="12dp" />
+
+    <RadioGroup
+        android:id="@+id/radioTakenGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/radioTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="복용함"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioNotTaken"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="미복용" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnSaveRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="복용 기록 저장"
+        android:layout_marginTop="8dp" />
+
+    <ListView
+        android:id="@+id/listRecords"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>

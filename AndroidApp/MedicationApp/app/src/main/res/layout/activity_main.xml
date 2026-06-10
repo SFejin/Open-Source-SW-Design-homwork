@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/textUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="메인 화면"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="약·영양제 검색" />
+
+    <Button
+        android:id="@+id/btnReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 관리"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="관리자 기능"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃"
+        android:layout_marginTop="24dp" />
+    <Button
+        android:id="@+id/btnSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="복약 일정 등록"
+        android:layout_marginTop="8dp" />
+    <Button
+        android:id="@+id/btnIntakeRecord"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="복용 기록 입력/조회"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/textAdminInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="12dp"
+        android:text="시연용 관리자 계정\n\nEmail : test@test.com\nPassword : test\n\n※ 과제 시연용 계정"
+        android:textSize="14sp"/>
+</LinearLayout>

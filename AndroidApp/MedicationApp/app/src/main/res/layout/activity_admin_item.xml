@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="약·영양제 관리"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioTypeGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <RadioButton
+                android:id="@+id/radioMedication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="약"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioSupplement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="영양제" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editItemId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="수정/삭제할 ID"
+            android:inputType="number"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editEffect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="효능"
+            android:minLines="2"
+            android:gravity="top"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editMethod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="복용 방법 / 섭취 방법"
+            android:minLines="2"
+            android:gravity="top"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editCaution"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="주의사항"
+            android:minLines="2"
+            android:gravity="top"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnAddItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="추가"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnEditItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="수정" />
+
+        <Button
+            android:id="@+id/btnDeleteItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="삭제" />
+
+    </LinearLayout>
+</ScrollView>

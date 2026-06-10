@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사용자 관리"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listUsers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textSelectedUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택된 사용자 없음"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnMakeAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="관리자로 변경" />
+
+    <Button
+        android:id="@+id/btnMakeUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="일반 사용자로 변경" />
+
+    <Button
+        android:id="@+id/btnBlockReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 작성 정지" />
+
+    <Button
+        android:id="@+id/btnUnblockReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 작성 정지 해제" />
+
+    <Button
+        android:id="@+id/btnDeleteUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사용자 삭제" />
+
+</LinearLayout>

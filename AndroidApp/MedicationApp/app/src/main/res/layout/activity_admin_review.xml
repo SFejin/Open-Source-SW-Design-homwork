@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 관리"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/listAdminReviews"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/textSelectedReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="선택된 리뷰 없음"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/editHideReason"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="숨김 사유 입력"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/btnHideReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 숨김" />
+
+    <Button
+        android:id="@+id/btnUnhideReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 숨김 해제" />
+
+    <Button
+        android:id="@+id/btnDeleteReview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="리뷰 삭제" />
+
+</LinearLayout>
