@@ -1,6 +1,8 @@
 package com.example.medication.service;
 
 import lombok.RequiredArgsConstructor;
+import com.example.medication.repository.ReviewRepository;
+import org.springframework.transaction.annotation.Transactional;
 import com.example.medication.dto.UserRegisterRequest;
 import com.example.medication.entity.User;
 import com.example.medication.repository.UserRepository;
@@ -14,6 +16,7 @@ public class UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final ReviewRepository reviewRepository;
     public User register(UserRegisterRequest request) {
 
         User user = User.builder()
@@ -70,6 +73,7 @@ public class UserService {
 
         return userRepository.save(targetUser);
     }
+    @Transactional
     public void deleteUserByAdmin(
             Long adminId,
             Long targetUserId
@@ -82,6 +86,12 @@ public class UserService {
 
         User targetUser = userRepository.findById(targetUserId)
                 .orElseThrow(() -> new RuntimeException("Target user not found"));
+
+        if ("ADMIN".equals(targetUser.getRole())) {
+            throw new RuntimeException("Admin account cannot be deleted");
+        }
+
+        reviewRepository.deleteByUser_UserId(targetUserId);
 
         userRepository.delete(targetUser);
     }
